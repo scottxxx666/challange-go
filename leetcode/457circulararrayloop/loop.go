@@ -1,11 +1,11 @@
 package _57circulararrayloop
 
 func circularArrayLoop(nums []int) bool {
+	isVisit := make([]int, len(nums))
+	for j := 0; j < len(nums); j++ {
+		isVisit[j] = -1
+	}
 	for i := 0; i < len(nums); i++ {
-		isVisit := make([]bool, len(nums))
-		for j := 0; j < len(nums); j++ {
-			isVisit[j] = false
-		}
 		direction := 1
 		if nums[i] < 0 {
 			direction = -1
@@ -14,13 +14,17 @@ func circularArrayLoop(nums []int) bool {
 		prev := -1
 		temp := i
 		res := true
-		for !isVisit[temp] {
-			isVisit[temp] = true
-			if prev == temp {
+		for isVisit[temp] != i {
+			if isVisit[temp] != -1 {
 				res = false
 				break
 			}
 			if nums[temp]*direction < 0 {
+				res = false
+				break
+			}
+			isVisit[temp] = i
+			if prev == temp {
 				res = false
 				break
 			}

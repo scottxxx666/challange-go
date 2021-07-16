@@ -22,6 +22,7 @@ func Test_circularArrayLoop(t *testing.T) {
 		{"4 num loop", args{[]int{1, 2, 3, 5}}, true},
 		{"5 num loop", args{[]int{1, 2, 2, -1, 3}}, true},
 		{"5 num no loop", args{[]int{1, 2, 3, -1, 3}}, false},
+		{"4 num loop", args{[]int{-1, 2, 1, 2}}, true},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
