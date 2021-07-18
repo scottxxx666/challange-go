@@ -17,6 +17,7 @@ func Test_numSquares(t *testing.T) {
 		{"4", args{4}, 1},
 		{"5", args{5}, 2},
 		{"6", args{6}, 3},
+		{"7", args{7}, 4},
 		{"8", args{8}, 2},
 		{"9", args{9}, 1},
 		{"11", args{11}, 3},
